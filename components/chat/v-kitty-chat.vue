@@ -1,6 +1,33 @@
 <template>
     <div v-fixedScroll class="chat">
         <div class="chat__content">
+
+            <img class="cloud cloud--1 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--2 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--3 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--4 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--5 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--6 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--7 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--8 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--9 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+            <img class="cloud cloud--10 cloud__big" src="../../assets/images/kitty/облачко1.png" alt="" >
+
+            <img class="cloud cloud--11 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--12 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--13 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--14 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--15 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--16 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--17 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--18 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--19 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+            <img class="cloud cloud--20 cloud__smoll" src="../../assets/images/kitty/облачко2.png" alt="" >
+
+
+
+
+
             <div v-for="(komment, index) in chat" :key="index" class="chat__item">
                 <div 
                     class="name"
@@ -83,7 +110,7 @@ export default {
         
         const client = new tmi.Client({
             connection: { reconnect: true },
-            channels: [ 'modestal' ]
+            channels: [ 'buster' ]
         });
         client.connect();
         client.on('message', (channel, tags, message, self) => {
@@ -110,15 +137,16 @@ export default {
     position: relative;
     overflow: hidden;
     width: 96%;
-    height: 96vh;
+    height: 90vh;
+    top: 75px;
     padding-top: 5px;
     margin: 0 auto;
     // background: url(./assets/images/chat/bc.jpg) center;
     background-repeat: no-repeat;
     // background-color: rgba(156, 13, 108, 0.5);
-    background-color: rgba(0, 0, 0, 0.308);
-    border: 3px solid rgb(255, 255, 255);
-    box-shadow: 0 0 10px 2px rgb(255, 255, 255);
+    background-color: #a3d2e8;
+    border: 6px solid rgb(255, 255, 255);
+    box-shadow: 0 0 10px 2px #a3d2e8;
     // animation: chat_bc_shadow 20s ease infinite;
     border-radius: 10px;
     padding: 10px;
@@ -141,16 +169,21 @@ export default {
         display: flex;
         align-items: center;
         margin: 10px 0;
-        background-color: rgba(0, 0, 0, 0.16);
+        background-color: rgba(0, 0, 0, 0.63);
         padding: 10px;
         border-radius: 20px;
         animation: appearance-item 0.7s ease 1 forwards;
     }
-    
+    &__kitty{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        margin-top: -50%;
+        margin: 0 auto;
+    }
 }
 .name{
     position: relative;
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: rgba(255, 255, 255, 0.45);
     border-radius: 10px;
     padding: 10px;
     margin-left: 6px;
@@ -195,7 +228,138 @@ export default {
     width: 23px;
     height: 23px;
 }
+/////////////////////////////////////////////////////////////////////////
+.cloud{
+    position: absolute;
+    &--1{
+        position: fixed;
+        left: 15px;
+        top: 88px;
+        animation: first-animate 10s ease infinite;
+    }
+    &--2{
+        position: fixed;
+        left: 113px;
+        top: 188px;
+        animation: first-animate 10s ease infinite;
+    }
+    &--3{
+        position: fixed;
+        left: 345px;
+        top: 539px;
+        animation: first-animate 10s ease infinite;
 
+    }
+    &--4{
+        position: fixed;
+        left: 155px;
+        top: 625px;
+        animation: threee-animate 10s ease infinite;
+    }
+    &--5{
+        position: fixed;
+        left: 33px;
+        top: 548px;
+        animation: threee-animate 10s ease infinite;
+    }
+    &--6{
+        position: fixed;
+        left: 295px;
+        top: 188px;
+        animation: first-animate 10s ease infinite;
+
+    }
+    &--7{
+        position: fixed;
+        left: 153px;
+        top: 348px;
+        animation: second-animate 10s ease infinite;
+
+    }
+    &--8{
+        position: fixed;
+        left: 73px;
+        top: 705px;
+        animation: threee-animate 10s ease infinite;
+    }
+    &--9{
+        position: fixed;
+        left: 395px;
+        top: 708px;
+        animation: first-animate 10s ease infinite;
+
+    }
+    &--10{
+        position: fixed;
+        left: 400px;
+        top: 110px;
+        animation: threee-animate 10s ease infinite;
+    }
+
+
+    &--11{
+        position: fixed;
+        left: 123px;
+        top: 82px;
+        animation: threee-animate 10s ease infinite;
+    }
+    &--12{
+        position: fixed;
+        left: 40px;
+        top: 328px;
+         animation: threee-animate 10s ease infinite;
+    }
+    &--13{
+        position: fixed;
+        left: 357px;
+        top: 384px;
+        animation: first-animate 10s ease infinite;
+    }
+    &--14{
+        position: fixed;
+        left: 423px;
+        top: 182px;
+        animation: first-animate 10s ease infinite;
+    }
+    &--15{
+        position: fixed;
+        left: 270px;
+        top: 328px;
+        animation: second-animate 10s ease infinite;
+    }
+    &--16{
+        position: fixed;
+        left: 577px;
+        top: 384px;
+        animation: threee-animate 10s ease infinite;
+    }
+    &--17{
+        position: fixed;
+        left: 155px;
+        top: 500px;
+        animation: threee-animate 10s ease infinite;
+    }
+    &--18{
+        position: fixed;
+        left: 17px;
+        top: 452px;
+        animation: second-animate 10s ease infinite;
+    }
+    &--19{
+        position: fixed;
+        left: 447px;
+        top: 424px;
+        animation: second-animate 10s ease infinite;
+    }
+    &--20{
+        position: fixed;
+        left: 288px;
+        top: 620px;
+        animation: first-animate 10s ease infinite;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
 .subscriber{
     position: relative;
     left: -35px;
@@ -274,7 +438,16 @@ export default {
         height: 30px;
     }
 }
-
+@keyframes appearance-item{
+    0%{
+        transform: scaleX(0);
+        background-color: rgb(51, 20, 20);
+    }
+    100%{
+        transform: scaleX(1);
+        background-color: rgba(0, 0, 0, 0.74);
+    }
+}
 @keyframes gun_shot{
     0%{
         transform: rotate(0deg);
@@ -286,31 +459,56 @@ export default {
         transform: rotate(0deg);
     }
 }
-@keyframes chat_bc_shadow{
+
+@keyframes first-animate{
     0%{
-        box-shadow: 0 0 20px 3px red;
+        transform: translate(0);
     }
     25%{
-        box-shadow: 0 0 10px 2px rgb(255, 0, 255);
+        transform: translate(20%, 0);
     }
     50%{
-        box-shadow: 0 0 20px 3px rgb(255, 0, 85);
+        transform: translate(30%, 20%);
     }
     75%{
-        box-shadow: 0 0 10px 2px rgb(255, 72, 0);
+        transform: translate(-10%, 20%);
     }
     100%{
-        box-shadow: 0 0 20px 3px red;
+        transform: translate(0);
     }
 }
-@keyframes appearance-item{
+@keyframes second-animate{
     0%{
-        transform: scaleX(0);
-        background-color: rgb(51, 20, 20);
+        transform: translate(0);
+    }
+    25%{
+        transform: translate(0%, 10%);
+    }
+    50%{
+        transform: translate(20%, 20%);
+    }
+    75%{
+        transform: translate(10%, -20%);
     }
     100%{
-        transform: scaleX(1);
-        background-color: rgba(0, 0, 0, 0.16);
+        transform: translate(0);
+    }
+}
+@keyframes threee-animate{
+    0%{
+        transform: translate(0);
+    }
+    25%{
+        transform: translate(20%, -10%);
+    }
+    50%{
+        transform: translate(5%, -20%);
+    }
+    75%{
+        transform: translate(30%, 10%);
+    }
+    100%{
+        transform: translate(0);
     }
 }
 </style>

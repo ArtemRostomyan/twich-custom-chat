@@ -1,4 +1,6 @@
 
+
+
 export const state = () => ({
     chat: []
 })
@@ -8,10 +10,8 @@ export const mutations = {
         if(state.chat.length >= 30){
             state.chat.splice(0, 20)
             state.chat.push(new_koment)
-            console.log(state.chat)
         } else{
             state.chat.push(new_koment)
-            console.log(state.chat)
         }
     }
 }

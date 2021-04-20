@@ -1,35 +1,32 @@
 <template>
     <div v-fixedScroll class="chat">
-        <div class="chat__content">
-            <div v-for="(komment, index) in chat" :key="index" class="chat__item">
-                <div 
-                    class="name"
-                    :class="{'active__sub': komment.subscriber, 'active__mod' : komment.mod}"
-                    :style="`color: ${komment.color}`">
-                        <div class="subscriber">
-                            <img class="elit subscriber__image" v-if="komment.subscriber == true " :src="require('~/assets/images/chat/fire.gif')" alt="">
-                            <span v-if="komment['badge-info.subscriber']"  class="subscriber__stazh">{{komment['badge-info.subscriber']}}</span>
-                        </div>
-                        <img class="elit moder" 
-                            v-if="komment.mod == true &&  komment['display-name'] != 'Nightbot' &&  komment['display-name'] != 'StreamElements' &&  komment['display-name'] != 'Moobot' " 
-                            :src="require('~/assets/images/chat/diamond.gif')" alt="">
-                        <img class="elit nightBot" v-if="komment['display-name'] === 'Nightbot' || komment['display-name'] === 'StreamElements' || komment['display-name'] === 'Moobot' " :src="require('~/assets/images/chat/robot.gif')" alt="">
-                        {{komment['display-name']}}</div>
-                        
-                <div 
-                    class="message"
-                    :class="{'active__sub': komment.subscriber  , 'active__mod' : komment.mod}"
-                    v-html="emotionalKomment(komment)"
-                    ></div>
+        <img src="../../assets/images/neon-chat/верх.png" alt="" class="chat__top">
+        <img src="../../assets/images/neon-chat/side.png" alt="" class="chat__left">
+            <div class="chat__content">
+                <div v-for="(komment, index) in chat" :key="index" class="chat__item">
+                    <div 
+                        class="name"
+                        :class="{'active__sub': komment.subscriber, 'active__mod' : komment.mod}"
+                        :style="`color: ${komment.color}`">
+                            <div class="subscriber">
+                                <img class="elit subscriber__image" v-if="komment.subscriber == true " :src="require('~/assets/images/chat/fire.gif')" alt="">
+                                <span v-if="komment['badge-info.subscriber']"  class="subscriber__stazh">{{komment['badge-info.subscriber']}}</span>
+                            </div>
+                            <img class="elit moder" 
+                                v-if="komment.mod == true &&  komment['display-name'] != 'Nightbot' &&  komment['display-name'] != 'StreamElements' &&  komment['display-name'] != 'Moobot' " 
+                                :src="require('~/assets/images/chat/diamond.gif')" alt="">
+                            <img class="elit nightBot" v-if="komment['display-name'] === 'Nightbot' || komment['display-name'] === 'StreamElements' || komment['display-name'] === 'Moobot' " :src="require('~/assets/images/chat/robot.gif')" alt="">
+                            {{komment['display-name']}}</div>
+                            
+                    <div 
+                        class="message"
+                        :class="{'active__sub': komment.subscriber  , 'active__mod' : komment.mod}"
+                        v-html="emotionalKomment(komment)"
+                        ></div>
+                </div>
             </div>
-        </div>
-        <img 
-            :src="require('~/assets/images/chat/guns.svg')" 
-            alt="" 
-            class="gun"
-            :class="{'gun__active': gun_active}"
-            >
-           
+        <img src="../../assets/images/neon-chat/side.png" alt="" class="chat__right">
+        <img src="../../assets/images/neon-chat/низ.png" alt="" class="chat__bottom">
     </div>
 </template>
 
@@ -83,7 +80,7 @@ export default {
         
         const client = new tmi.Client({
             connection: { reconnect: true },
-            channels: [ 'modestal' ]
+            channels: [ 'buster' ]
         });
         client.connect();
         client.on('message', (channel, tags, message, self) => {
@@ -109,29 +106,37 @@ export default {
 .chat{
     position: relative;
     overflow: hidden;
-    width: 96%;
-    height: 96vh;
+    width: 100%;
+    height: 100vh;
     padding-top: 5px;
     margin: 0 auto;
-    // background: url(./assets/images/chat/bc.jpg) center;
     background-repeat: no-repeat;
-    // background-color: rgba(156, 13, 108, 0.5);
-    background-color: rgba(0, 0, 0, 0.308);
-    border: 3px solid rgb(255, 255, 255);
-    box-shadow: 0 0 10px 2px rgb(255, 255, 255);
-    // animation: chat_bc_shadow 20s ease infinite;
-    border-radius: 10px;
     padding: 10px;
+    &::before{
+            position: absolute;
+            content: '';
+            border-radius: 10px;
+            width: 100%;
+            z-index: 2;
+            height: 20px;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 0 500px 45px #355a98;
+            top: 0;
+            left: 0;
+        }
     &__content{
         z-index: 1;
         position: absolute;
-        overflow: hidden;;
-        width: 93%;
-        left: 40px;
+        overflow: hidden;
+        background-color: rgb(0, 0, 0);
+        width: 95%;
+        min-height: 100%;
+        left: 14px;
         bottom: 0;
-        padding: 10px 25px;
+        padding: 10px 25px 95px 25px;
+        border-radius: 30px;
         @media(max-width: 480px){
-            padding: 10px 5px;
+            padding: 10px 25px 95px 25px;
             width: 95%;
             left: 10px;
             bottom: 10px;
@@ -141,16 +146,52 @@ export default {
         display: flex;
         align-items: center;
         margin: 10px 0;
-        background-color: rgba(0, 0, 0, 0.16);
+        background: rgb(36,28,82);
+        background: linear-gradient(90deg, rgba(36,28,82,1) 0%, rgba(98,39,142,1) 36%, rgba(213,60,253,1) 100%);
         padding: 10px;
         border-radius: 20px;
         animation: appearance-item 0.7s ease 1 forwards;
     }
-    
+    &__top{
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        width: 100%;
+        
+    }
+    &__bottom{
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    &__left{
+         position: absolute;
+            z-index: 2;
+            left: 4px;
+            height: 69%;
+            top: 120px;
+            width: 17px;
+            border-radius: 0px 0px 0px 176px;
+            box-shadow: 0 0 15px 1px rgb(59, 144, 255);
+
+    }
+    &__right{
+        position: absolute;
+        z-index: 2;
+        right: 4px;
+        height: 69%;
+        top: 120px;
+        width: 17px;
+        border-radius: 0px 0px 175px 0px;
+        box-shadow: 0 0 15px 1px rgb(59, 144, 255);
+    }
 }
 .name{
     position: relative;
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
     padding: 10px;
     margin-left: 6px;
@@ -164,8 +205,8 @@ export default {
     max-width: 950px;
     overflow-x: hidden;
     font-size: 22px;
-    color: #000;
-    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
     font-weight: 600;
     font-style: italic;
     display: flex;
@@ -253,13 +294,15 @@ export default {
 }
 .active{
     &__sub{
-        border: 2px solid #ff7878;
-        box-shadow: 0 0 10px 1px #ff7878;
+        border: 2px solid rgb(59, 144, 255);
+        color: rgb(0, 0, 0);
+        box-shadow: 0 0 10px 1px rgb(59, 144, 255);
         background-color: #fff;
     }
     &__mod{
-        border: 2px solid #ff46f0;
-        box-shadow: 0 0 10px 1px #ff46f0;
+        border: 2px solid rgb(59, 144, 255);
+        box-shadow: 0 0 10px 1px rgb(59, 144, 255);
+        color: rgb(0, 0, 0);
         background-color: #fff;
     }
 }
@@ -272,35 +315,6 @@ export default {
     100%{
         width: 30px;
         height: 30px;
-    }
-}
-
-@keyframes gun_shot{
-    0%{
-        transform: rotate(0deg);
-    }
-    50%{
-        transform: rotate(-70deg);
-    }
-    100%{
-        transform: rotate(0deg);
-    }
-}
-@keyframes chat_bc_shadow{
-    0%{
-        box-shadow: 0 0 20px 3px red;
-    }
-    25%{
-        box-shadow: 0 0 10px 2px rgb(255, 0, 255);
-    }
-    50%{
-        box-shadow: 0 0 20px 3px rgb(255, 0, 85);
-    }
-    75%{
-        box-shadow: 0 0 10px 2px rgb(255, 72, 0);
-    }
-    100%{
-        box-shadow: 0 0 20px 3px red;
     }
 }
 @keyframes appearance-item{

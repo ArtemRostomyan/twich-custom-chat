@@ -5,7 +5,7 @@
         class="nav__item"
         v-for="nav in navigations" 
         :key="nav.id">
-        <router-link :to="`/${nav.id}`" exact active-class="active">
+        <router-link :to="`/${nav.id}`" active-class="active">
           {{nav.name}}
         </router-link>
       </li>
@@ -24,8 +24,16 @@ export default{
           "id": "catalog"
         },
         {
-          "name": "Контакты",
-          "id": "contacts"
+          "name": "Неоновый чат",
+          "id": "neon-chat"
+        },
+        {
+          "name": "Серый чат",
+          "id": "gray-chat"
+        },
+        {
+          "name": "Kitty чат",
+          "id": "kitty"
         },
         {
           "name": "Чат",

@@ -1,8 +1,6 @@
 <template>
   <div class="chat-page">
-    <div class="container">
       <v-chat/>
-    </div>
   </div>
 </template>
 
@@ -10,6 +8,7 @@
 import vChat from '~/components/chat/v-chat.vue'
 export default{
   components: { vChat },
+  layout: 'clear',
   name: 'chat',
   data(){
     return{
@@ -24,8 +23,10 @@ export default{
 
 <style lang="scss">
 .chat-page{
-  
+  background: url(./assets/images/chat/хер.webp) center;
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 </style>
