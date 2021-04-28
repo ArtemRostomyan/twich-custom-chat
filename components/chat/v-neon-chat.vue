@@ -1,7 +1,7 @@
 <template>
     <div v-fixedScroll class="chat">
-        <img src="../../assets/images/neon-chat/верх.png" alt="" class="chat__top">
-        <img src="../../assets/images/neon-chat/side.png" alt="" class="chat__left">
+        <img src="../../assets/images/neon-chat/верх.png" alt="" class="chat__top ">
+        <img src="../../assets/images/neon-chat/side.png" alt="" class="chat__left bok">
             <div class="chat__content">
                 <div v-for="(komment, index) in chat" :key="index" class="chat__item">
                     <div 
@@ -25,7 +25,7 @@
                         ></div>
                 </div>
             </div>
-        <img src="../../assets/images/neon-chat/side.png" alt="" class="chat__right">
+        <img src="../../assets/images/neon-chat/side.png" alt="" class="chat__right bok">
         <img src="../../assets/images/neon-chat/низ.png" alt="" class="chat__bottom">
     </div>
 </template>
@@ -80,7 +80,7 @@ export default {
         
         const client = new tmi.Client({
             connection: { reconnect: true },
-            channels: [ 'buster' ]
+            channels: [ 'ESL_CSGO' ]
         });
         client.connect();
         client.on('message', (channel, tags, message, self) => {
@@ -171,23 +171,71 @@ export default {
          position: absolute;
             z-index: 2;
             left: 4px;
-            height: 69%;
-            top: 120px;
+            height: 68%;
+            top: 126px;
             width: 17px;
             border-radius: 0px 0px 0px 176px;
             box-shadow: 0 0 15px 1px rgb(59, 144, 255);
-
+        
     }
     &__right{
         position: absolute;
         z-index: 2;
         right: 4px;
-        height: 69%;
-        top: 120px;
+        height: 68%;
+        top: 126px;
         width: 17px;
         border-radius: 0px 0px 175px 0px;
         box-shadow: 0 0 15px 1px rgb(59, 144, 255);
+        
+        
     }
+}
+.bok{
+        
+        
+        @media(max-height: 750px){
+                height: 63%;
+        }
+        @media(max-height: 700px){
+                height: 60%;
+        }
+        @media(max-height: 650px){
+                height: 58%;
+        }
+        @media(max-height: 600px){
+                height: 55%;
+        }
+        @media(max-height: 550px){
+                height: 52%;
+        }
+        @media(max-height: 500px){
+                height: 50%;
+        }
+        @media(max-height: 450px){
+                height: 45%;
+        }
+        @media (min-height: 868px) and (max-height: 900px) {
+            height: 71%;
+        }
+        @media (min-height: 901px) and (max-height: 1000px) {
+            height: 72%;
+        }
+        @media (min-height: 1001px) and (max-height: 1100px) {
+            height: 75%;
+        }
+        @media (min-height: 1101px) and (max-height: 1200px) {
+            height: 77%;
+        }
+        @media (min-height: 1201px) and (max-height: 1300px) {
+            height: 79%;
+        }
+        @media(min-height: 1301px){
+            height: 80%;
+        }
+        @media(min-height: 1601px){
+            height: 87%;
+        }
 }
 .name{
     position: relative;

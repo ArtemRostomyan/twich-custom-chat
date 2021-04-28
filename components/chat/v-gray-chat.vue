@@ -1,7 +1,7 @@
 <template>
     <div v-fixedScroll class="chat">
         <img src="../../assets/images/gray-chat/верх.png" alt="" class="chat__top">
-        <img src="../../assets/images/gray-chat/side.png" alt="" class="chat__left">
+        <img src="../../assets/images/gray-chat/side.png" alt="" class="chat__left bok">
             <div class="chat__content">
                 <div v-for="(komment, index) in chat" :key="index" class="chat__item">
                     <div 
@@ -27,7 +27,7 @@
                         ></div>
                 </div>
             </div>
-        <img src="../../assets/images/gray-chat/side.png" alt="" class="chat__right">
+        <img src="../../assets/images/gray-chat/side.png" alt="" class="chat__right bok">
         <img src="../../assets/images/gray-chat/низ.png" alt="" class="chat__bottom">
     </div>
 </template>
@@ -82,7 +82,7 @@ export default {
         
         const client = new tmi.Client({
             connection: { reconnect: true },
-            channels: [ 'buster' ]
+            channels: [ 'ESL_CSGO' ]
         });
         client.connect();
         client.on('message', (channel, tags, message, self) => {
@@ -326,5 +326,47 @@ export default {
         transform: scaleX(1);
         background-color: rgba(0, 0, 0, 0.16);
     }
+}
+.bok{
+    z-index: 2;
+    @media(max-height: 750px){
+                height: 63%;
+        }
+        @media(max-height: 700px){
+                height: 64%;
+        }
+        @media(max-height: 650px){
+                height: 63%;
+        }
+        @media(max-height: 600px){
+                height: 60%;
+        }
+        @media(max-height: 550px){
+                height: 57%;
+        }
+        @media(max-height: 500px){
+                height: 55%;
+        }
+        @media(max-height: 450px){
+                height: 50%;
+        }
+        @media (min-height: 868px) and (max-height: 900px) {
+            height: 73%;
+        }
+        @media (min-height: 901px) and (max-height: 1000px) {
+            height: 75%;
+        }
+        @media (min-height: 1001px) and (max-height: 1100px) {
+            height: 77%;
+        }
+        @media (min-height: 1101px) and (max-height: 1200px) {
+            height: 79%;
+        }
+        @media (min-height: 1201px) and (max-height: 1300px) {
+            height: 81%;
+        }
+        @media(min-height: 1301px){
+            height: 82%;
+        }
 }
 </style>
